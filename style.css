@@ -45,7 +45,7 @@ input{
 
 .btn{
     background: rgb(0, 161, 81);
-    width: 70px;
+    width: 100px;
     height: 40px;
     font-size: 15px;
     font-weight: 700;
@@ -54,5 +54,69 @@ input{
     letter-spacing: 1px;
     border-radius: 4px;
     cursor: pointer;
+}
+
+.containerTwo{
+    width: 1000px;
+    max-width: 90%;
+    display: flex;
+    margin: auto;
+}
+
+#transaction{
+    display: none;
+}
+
+.threeGrid{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+#gridOne{
+    background: blueviolet;
+}
+#gridTwo{
+    background: brown;
+}
+#gridThree{
+    background: orange;
+}
+
+.balancebox{
+    width: 280px;
+    height: 150px;
+    color: white;
+    border-radius: 10px;
+    padding: 30px 30px;
+}
+
+.balancebox h1{
+    font-size: 50px;
+    padding: 10px;
+    margin-left: -11px;
+}
+.balancebox p{
+    font-weight: 700;
+}
+
+
+.transaction-section{
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.deposit-withdraw{
+    width: 450px;
+    height: 225px;
+    border: 1px solid rebeccapurple;
+    background:white;
+    border-radius: 10px;
+    padding: 30px;
+    font-weight: 700;
+    border: none;
+    box-shadow: 5px 5px 10px grey;
 }
 

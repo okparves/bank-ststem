@@ -22,13 +22,93 @@
         </div>
     </div>
 
-
+    <section id="transaction" class="containerTwo">
+            <div class="threeGrid">
+                <div class="balancebox" id="gridOne">
+                    <p>Deposit</p>
+                    <h1>$ <span id="addDeposit">00</span></h1>
+                </div>
+                <div class="balancebox" id="gridTwo">
+                    <p>Withdraw</p>
+                    <h1>$ <span id="addWithdraw">00</span></h1>
+                </div>
+                <div class="balancebox" id="gridThree">
+                    <p>Balance</p>
+                    <h1>$ <span id="mainBalance">1240</span></h1>
+                </div>
+            </div>
+        <div class="transaction-section">
+            <div class="deposit-withdraw">
+                <h3>Deposit</h3>
+                <input id="depositBalance" type="text" placeholder="$ amount you want to deposit">
+                <button id="deposit" class="btn">Deposit</button>
+            </div>
+            <div class="deposit-withdraw">
+                <h3>Withdraw</h3>
+                <input id="withdrawAmount" type="text" placeholder="$ amount you want to withdraw">
+                <button id="withdrawButton" class="btn">Withdraw</button>
+            </div>
+        </div>
+        
+    </section>
     <script>
-        var log= document.getElementById('button');
+        // login section
+        const log= document.getElementById('button');
         log.addEventListener('click', function(){
-            var firstPage= document.getElementById('login-section');
+            const firstPage= document.getElementById('login-section');
             firstPage.style.display='none';
+            const transactionPart= document.getElementById('transaction');
+            transactionPart.style.display = 'block';
         })
+
+        // deposit withdraw section
+        const depositButton = document.getElementById("deposit");
+        depositButton.addEventListener("click", function(){
+            const depositAmount = getInput("depositBalance");
+
+            updateBalance("addDeposit", depositAmount);
+            updateBalance("mainBalance", depositAmount);
+            document.getElementById("depositBalance").value = "";
+        })
+
+        //withdraw section
+        const withdrawButton = document.getElementById("withdrawButton");
+        withdrawButton.addEventListener("click", function(){
+            const withdrawAmount = getInput("withdrawAmount");
+
+            updateBalance("addWithdraw", withdrawAmount);
+            updateBalanceWithdraw("mainBalance", withdrawAmount);
+
+            document.getElementById("withdrawAmount").value = "";
+        })
+
+        //get the value form input deposit and withdraw
+        function getInput(id){
+            const amount = document.getElementById(id).value;
+            const amountValue = parseFloat(amount);
+            return amountValue;
+        }
+
+        //function of converting deposit & add amount to the deposit section then add it to main balance
+        function updateBalance(id, depositConvert){
+            const passedId = fromString(id);
+            const updateBalance = passedId + depositConvert;
+            document.getElementById(id).innerText = updateBalance;
+        }
+
+        //function of converting withdraw and subtract withdraw form balance 
+        function updateBalanceWithdraw(id, withdrawAmountConvert){
+            const convertMainBalance = fromString(id);
+            const updateBalance = convertMainBalance - withdrawAmountConvert;
+            document.getElementById(id).innerText = updateBalance;
+        }
+
+        //function of converting gird balances form string to integer
+        function fromString(id){
+            const getString = document.getElementById(id).innerText;
+            const convertStringToInteger = parseFloat(getString);
+            return convertStringToInteger;
+        }
     </script>
 </body>
 </html>
